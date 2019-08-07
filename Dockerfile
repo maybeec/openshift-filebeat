@@ -10,6 +10,8 @@ RUN yum -y --setopt=tsflags=nodocs update && \
   yum -y --setopt=tsflags=nodocs install wget && \
   wget https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-${FILEBEAT_VERSION}-x86_64.rpm && \
   yum -y install ./filebeat-${FILEBEAT_VERSION}-x86_64.rpm
+  
+RUN chmod -R 0777 /etc/filebeat/
 
 WORKDIR /etc/filebeat
 
